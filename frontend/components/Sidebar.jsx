@@ -19,7 +19,7 @@ function Sidebar() {
         <Home strokeWidth={1} />
         </Link>
 
-        <Link href="/" className="navIcon w-10 h-10 flex items-center justify-center hover:shadow-md rounded transition-all ease-in-out duration-200 cursor-pointer">
+        <Link href="/self" className="navIcon w-10 h-10 flex items-center justify-center hover:shadow-md rounded transition-all ease-in-out duration-200 cursor-pointer">
         <User strokeWidth={1} />
         </Link>
        
