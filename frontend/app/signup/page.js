@@ -6,12 +6,23 @@ import { UserAuth } from "../context/AuthContext.js";
 export default function SignUp() {
   const router = useRouter();
   const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
+  const [age, setAge] = useState('');
+  const [qualification, setQualification] = useState('');
+  const [school, setSchool] = useState('');
   const [password, setPassword] = useState('');
   const { user, googleSignIn, logOut, register } = UserAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+
+       // Validate age
+      if (parseInt(age) < 13) {
+        alert('You must be at least 13 years old to sign up.');
+        return;
+      }
+      
       await register(email, password);
       router.push('/');
     } catch (error) {
@@ -28,6 +39,51 @@ export default function SignUp() {
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
           <input type="hidden" name="remember" value="true" />
           <div className="rounded-md shadow-sm -space-y-px">
+          <div>
+              <label htmlFor="username" className="sr-only">
+                User Name
+              </label>
+              <input
+                id="username"
+                name="username"
+                type="text"
+                required
+                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-white rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                placeholder="Username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+              />
+            </div>
+            <div>
+              <label htmlFor="age" className="sr-only">
+                Age
+              </label>
+              <input
+                id="age"
+                name="age"
+                type="number"
+                required
+                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-white rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                placeholder="Email address"
+                value={age}
+                onChange={(e) => setAge(e.target.value)}
+              />
+            </div>
+            <div>
+              <label htmlFor="qualification" className="sr-only">
+                Highest Qualification
+              </label>
+              <input
+                id="qualification"
+                name="qualification"
+                type="text"
+                required
+                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-white rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                placeholder="Highest Qualification"
+                value={qualification}
+                onChange={(e) => setQualification(e.target.value)}
+              />
+            </div>
             <div>
               <label htmlFor="email-address" className="sr-only">
                 Email address
