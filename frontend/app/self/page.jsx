@@ -3,36 +3,13 @@ import React from "react";
 import { Panel, PanelGroup, PanelResizeHandle } from "react-resizable-panels";
 import PomodoroTimer from "@/components/Pomodoro";
 import Todo from "@/components/Todo";
-import {Tabs, Tab, Card, CardBody} from "@nextui-org/react";
+import { Tabs, Tab, Card, CardBody } from "@nextui-org/react";
 import Board from "@/components/Board";
 import Music from "@/components/Music";
 
-
-function page() {
+function Page() {
   return (
-    //  <section className="flex w-full h-full">
-    //   <div className="h-full flex flex-col">
-
-    //   </div>
-
-    //  </section>
-
     <PanelGroup direction="horizontal" id="group" className="gap-2">
-      <Panel
-        id="left-panel"
-        defaultSize={20}
-        minSize={12}
-        maxSize={20}
-        collapsible
-        className="flex flex-col gap-8"
-      >
-        <PomodoroTimer />
-        <Todo/>
-      </Panel>
-      <PanelResizeHandle
-        id="resize-handle"
-        className=" bg-gray-200 w-1 h-20 my-auto rounded"
-      />
       <Panel id="right-panel" defaultSize={80}>
         
 
@@ -54,8 +31,23 @@ function page() {
       </Tabs>
     </div>  
       </Panel>
+      <PanelResizeHandle
+        id="resize-handle"
+        className="bg-gray-200 w-1 h-20 my-auto rounded"
+      />
+      <Panel
+        id="left-panel"
+        defaultSize={20}
+        minSize={12}
+        maxSize={20}
+        collapsible
+        className="flex flex-col gap-8"
+      >
+        <PomodoroTimer />
+        <Todo style={{ margin: "8px 0" }} />
+      </Panel>
     </PanelGroup>
   );
 }
 
-export default page;
+export default Page;

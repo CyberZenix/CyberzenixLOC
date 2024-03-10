@@ -1,34 +1,28 @@
-'use client'
-import { v4 as uuidv4 } from 'uuid';
-import { useRouter } from 'next/navigation'
+import { useEffect } from 'react';
+import AgoraRTC from 'agora-rtc-sdk-ng';
 
-import styles from '../styles/home.module.css'
-import { useState } from 'react';
+const GroupCallPage = () => {
+ useEffect(() => {
+    const joinChannel = async () => {
+      const client = AgoraRTC.createClient({ mode: 'rtc', codec: 'vp8' });
+      await client.join('YOUR_APP_ID', 'YOUR_CHANNEL_NAME', 'YOUR_TOKEN', null);
+      const localTrack = await AgoraRTC.createMicrophoneAndCameraTracks();
+      await client.publish(localTrack);
+      client.on('user-published', async (user, mediaType) => {
+        await client.subscribe(user, mediaType);
+        if (mediaType === 'video') {
+          const remoteVideoTrack = user.videoTrack;
+          remoteVideoTrack.play('video-grid');
+        }
+      });
+    };
 
-export default function Home() {
-  const router = useRouter()
-  const [roomId, setRoomId] = useState('')
+    joinChannel().catch(console.error);
+ }, []);
 
-  const createAndJoin = () => {
-    const roomId = uuidv4()
-    router.push(`/focusgroups/${roomId}`)
-  }
+ return (
+    <div id="video-grid"></div>
+ );
+};
 
-  const joinRoom = () => {
-    if (roomId) router.push(`/focusgroups/${roomId}`)
-    else {
-      alert("Please provide a valid room id")
-    }
-  }
-  return (
-    <div className={styles.homeContainer}>
-        <h1 className='head'>Google Meet Clone</h1>
-        <div className={styles.enterRoom}>
-          <input className='roomsid' placeholder='Enter Room ID' value={roomId} onChange={(e) => setRoomId(e?.target?.value)}/>
-          <button onClick={joinRoom}>Join Room</button>
-        </div>
-        <span  className={styles.separatorText} >--------------- OR ---------------</span>
-        <button className='btna' onClick={createAndJoin}>Create a new room</button>
-    </div>
-  )
-}
+export default GroupCallPage;
