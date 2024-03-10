@@ -1,6 +1,15 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-    serverMiddleware: [{ path: '/api/socket', handler: '~/pages/api/socket.js' }],
-}
+const path = require('path');
 
-module.exports = nextConfig
+const nextConfig = {
+  webpack: (config) => {
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      '@': path.resolve(__dirname, './'),
+    };
+
+    return config;
+  },
+};
+
+module.exports = nextConfig;
