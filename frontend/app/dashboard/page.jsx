@@ -16,10 +16,9 @@ const page = () => {
         <div key={index}><Chips interest={interest}/></div>        
       ))}</div>
 
-      <div className='pt-10'><StudyHoursChart/></div>
-           
+      <div className='pt-10'><StudyHoursChart/></div>           
     </div>
-    <div className='h-screen w-screen'>
+    <div className='h-screen m-0 p-0'>
         <CollectionCard></CollectionCard>
     </div>
   </div>    
