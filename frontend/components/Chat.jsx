@@ -1,17 +1,18 @@
-import React, { CSSProperties, useState } from 'react'
+"use client"
+import React, { CSSProperties, useEffect, useState } from 'react'
 import { createChannel, createClient, RtmMessage } from 'agora-rtm-react'
 import { UserAuth } from "@/app/context/AuthContext.js";
 
-export const useClient = createClient(props.appId);
-export const useChannel = createChannel(props.channelName)
 
 const Chat = (props) => {
 const { user, googleSignIn, logOut, register } = UserAuth();
 
+  const useClient = createClient(props.appId);
+  const useChannel = createChannel(props.channelName)
   const client = useClient();
   const testChannel = useChannel(client)
   const [texts, setTexts] = useState([])
-  const [uid, setUid] = useState(user.uid)
+  const [uid, setUid] = useState()
   const [textInput, setTextInput] = useState('')
   const [isLoggedIn, setLoggedIn] = useState(false)
 
@@ -49,6 +50,12 @@ const { user, googleSignIn, logOut, register } = UserAuth();
     setTextInput('')
   }
 
+
+  useEffect(() => {
+    console.log(user)
+    
+    
+    setUid(user.uid)},[user])
   return (
     <div style={{ display: 'flex', flex: 1, flexDirection: 'column', height: '90vh', margin: 8 }}>
       <h1 style={{ textAlign: 'center' }}>Agora RTM Wrapper Demo</h1>

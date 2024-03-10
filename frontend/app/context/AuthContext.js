@@ -44,12 +44,14 @@ export const AuthContextProvider = ({ children }) => {
 
 
     async function register(email,password, username, age, qualification, school){
-        let uid = '';   
+ 
         const res = await createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
           // Signed up 
           const user = userCredential.user;
-          uid = user.uid;
+          setUser(user)
+
+          // uid = user.uid;
           // ...
         })
         .catch((error) => {
@@ -61,12 +63,12 @@ export const AuthContextProvider = ({ children }) => {
         
         try {
             console.log("Consolidating Data......");
-            await setDoc(doc(db,"Users",uid),{
+            await setDoc(doc(db,"Users",user.uid),{
                 Age: age,
                 Email: email,
                 Qualification: qualification,
                 School: school,
-                User_id: uid,
+                User_id: user.uid,
                 Username: username
                })
         } catch (error) {
@@ -80,7 +82,9 @@ export const AuthContextProvider = ({ children }) => {
         try {
             const res = await signInWithEmailAndPassword(auth,email,password).then((userCredential) => {
                 const user = userCredential.user;
-                uid = user.uid;
+                setUser(user)
+                console.log("User logged in: ",user);
+                // uid = user.uid;
               });    
         } catch (error) {
             console.log("Error logging in: ",error);

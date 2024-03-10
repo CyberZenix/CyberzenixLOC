@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import AgoraRTC, {
   AgoraRTCProvider,
@@ -20,7 +20,7 @@ function Call(props) {
     AgoraRTC.createClient({ codec: "vp8", mode: "rtc" })
   );
 
-  
+
 
   return (
     <AgoraRTCProvider client={client}>

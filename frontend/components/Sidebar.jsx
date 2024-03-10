@@ -41,7 +41,7 @@ function Sidebar() {
         <Users strokeWidth={1} />
         </Link>
 
-        <Link href="/" className="navIcon flex w-8 h-8 shrink-0 items-center justify-center rounded-full hover:shadow-lg  transition-all ease-in-out duration-200 cursor-pointer">
+        <Link href="/channel/focus" className="navIcon flex w-8 h-8 shrink-0 items-center justify-center rounded-full hover:shadow-lg  transition-all ease-in-out duration-200 cursor-pointer">
         <Badge content="3" size="sm" color="primary">
         <Avatar className='w-8 h-8'
           radius="md"
