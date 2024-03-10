@@ -5,6 +5,7 @@ import PomodoroTimer from "@/components/Pomodoro";
 import Todo from "@/components/Todo";
 import {Tabs, Tab, Card, CardBody} from "@nextui-org/react";
 import Board from "@/components/Board";
+import Music from "@/components/Music";
 
 
 function page() {
@@ -38,12 +39,7 @@ function page() {
       <div className="flex w-full h-full flex-col">
       <Tabs aria-label="Options" className="shadow-none relative">
         <Tab key="music" title="Music" className="h-full">
-          <Card className="shadow-none h-full absolute left-0">
-            {console.log("Card")}
-            <CardBody>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            </CardBody>
-          </Card>  
+          <Music/>
         </Tab>
         <Tab key="jamboard" title="Jamboard" className="h-full">
           <Board/>
