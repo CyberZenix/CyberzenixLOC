@@ -25,7 +25,7 @@ function Sidebar() {
         </Link>
        
        
-        <Link href="/" className="navIcon w-10 h-10 flex items-center justify-center hover:shadow-md rounded transition-all ease-in-out duration-200 cursor-pointer">
+        <Link href="/suggestFriends" className="navIcon w-10 h-10 flex items-center justify-center hover:shadow-md rounded transition-all ease-in-out duration-200 cursor-pointer">
         <Handshake strokeWidth={1} />
         </Link>
 
