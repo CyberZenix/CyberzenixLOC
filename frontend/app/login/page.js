@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { UserAuth } from "../context/AuthContext";
-
+import { Player, Controls } from "@lottiefiles/react-lottie-player"
 export default function Login() {
   const router = useRouter();
   const [email, setEmail] = useState('');
@@ -20,6 +20,7 @@ export default function Login() {
   };
 
   return (
+    <div>
     <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
         <div>
@@ -71,6 +72,16 @@ export default function Login() {
             </button>
           </div>
         </form>
+      </div>
+    </div>
+    <div className="absolute top-1/4 right-1/4">
+        <Player
+          autoplay
+          speed={1.5}
+          loop
+          src="https://lottie.host/a021a71b-7b94-4390-bbbe-99c64e7f1473/6EPaja3pLi.json"
+          style={{ height: "600px", width: "600px" }}
+        />
       </div>
     </div>
   );

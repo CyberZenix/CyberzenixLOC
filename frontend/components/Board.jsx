@@ -53,7 +53,7 @@ function Board() {
  }, []);
 
  return (
-    <Card className="shadow-none h-full">
+    <Card className="shadow-none h-full overflow-hidden">
       <CardBody>
         <div style={{ width: '100vw', height: '100vh' }} id="wt-container"></div>
       </CardBody>
