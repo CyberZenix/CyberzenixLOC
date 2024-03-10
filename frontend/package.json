@@ -14,6 +14,8 @@
     "@lottiefiles/react-lottie-player": "^3.5.3",
     "@nextui-org/react": "^2.2.10",
     "agora-rtc-react": "^2.1.0",
+    "agora-rtm-react": "^1.1.2",
+    "agora-rtm-sdk": "^2.1.9",
     "autoprefixer": "10.4.18",
     "chart.js": "^4.4.2",
     "classnames": "^2.5.1",
