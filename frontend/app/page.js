@@ -11,6 +11,7 @@ export default function Home() {
     <main className="">
        <Button onClick={() => setTheme('light')}>Click me</Button>
        <Button onClick={logOut}>Log Out</Button>
+       <a href='http//localhost:3001/focus' target='_blank'>WebRTC</a>
     </main>
   )
 }
