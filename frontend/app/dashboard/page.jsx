@@ -7,7 +7,7 @@ import StudyHoursChart from '../../components/StudyHoursChart.jsx'
 
 const page = () => {
 
-    const interests = ['Arts', 'Books', 'Gym',  'Cooking', 'Coding'];
+    const interests = ['Arts', 'Books', 'Gym',  'Cooking', 'Coding', 'Technology', 'Fashion', 'Formula 1', 'automobiles', 'Learning', 'Business', 'Entrepreneurship'];
 
   return (<div className='flex gap-40'>
     <div className='pl-10'>
