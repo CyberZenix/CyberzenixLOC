@@ -1,6 +1,16 @@
+
+"use client"
 import Call from "@/components/Call";
+import Chat from "@/components/Chat";
+
+import { UserAuth } from "../../context/AuthContext.js";
+import { Tabs, Tab, Card, CardBody } from "@nextui-org/react";
+import { Panel, PanelGroup, PanelResizeHandle } from "react-resizable-panels";
+import { useEffect } from "react";
 
 export default function Page({ params }) {
+  const { user, googleSignIn, logOut, register } = UserAuth();
+  useEffect(()=>{console.log(user)},[user])
     return (
         <PanelGroup direction="horizontal" id="group" className="gap-2">
       <Panel id="right-panel" defaultSize={80}>
@@ -17,13 +27,14 @@ export default function Page({ params }) {
       <Panel
         id="left-panel"
         defaultSize={20}
-        minSize={12}
-        maxSize={20}
         collapsible
         className="flex flex-col gap-8"
       >
-        <PomodoroTimer />
-        <Todo style={{ margin: "8px 0" }} />
+         <Card className="shadow-none h-full">
+            <CardBody>
+            <Chat appId={"51dc4c3e3d284f9d8944d4b2e7218604"} channelName={params.channelName}></Chat>
+            </CardBody>
+          </Card>  
       </Panel>
     </PanelGroup>
     )
