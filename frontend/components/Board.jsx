@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { Card, CardBody } from 'reactstrap';
+import React from 'react'
+import { Card, CardHeader, CardBody, CardFooter } from "@nextui-org/react";
 
 function Board() {
  useEffect(() => {
