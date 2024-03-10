@@ -10,8 +10,7 @@ import { AuthContextProvider } from "../app/context/AuthContext.js";
 export function Providers({children}) {
   return (
     <NextUIProvider className='h-screen p-4 w-screen'>
-      <NextThemesProvider attribute="class">
-
+      <NextThemesProvider attribute="class" defaultTheme='light'>
         <AuthContextProvider>
             {children}
         </AuthContextProvider>
