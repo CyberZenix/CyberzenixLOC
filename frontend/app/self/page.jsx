@@ -6,6 +6,7 @@ import Todo from "@/components/Todo";
 import { Tabs, Tab, Card, CardBody } from "@nextui-org/react";
 import Board from "@/components/Board";
 import Music from "@/components/Music";
+import FileUpload from '../../components/UploadFiles.jsx'
 
 function Page() {
   return (
@@ -24,9 +25,15 @@ function Page() {
         <Tab key="resources" title="Resources" className="h-full">
           <Card className="shadow-none h-full">
             <CardBody>
-              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              <div className="flex flex-col justify-center gap-64">
+                <div>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+                <div><FileUpload/></div>
+              </div>
+              
+              
             </CardBody>
-          </Card>  
+          </Card>
+          
         </Tab>
       </Tabs>
     </div>  

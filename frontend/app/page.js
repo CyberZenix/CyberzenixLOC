@@ -15,7 +15,7 @@ export default function Home() {
               <video className=' align-top' src='/new_left_screen.mp4'></video>
           </div>
           <div>
-          <h1 className="text-4xl text-center font-bold mb-8">Study Solo</h1>
+          <h1 className="text-4xl text-center font-bold mb-8"><a href='/self'>Study Solo</a></h1>
             <p className="text-lg text-center mb-10">
               Create your perfect study environment with atmospheric backgrounds,
               personal timers, and goals-in your very own study room.
@@ -44,10 +44,10 @@ export default function Home() {
               <div className='flex text-center justify-center justify-items-center gap-8'>
                 
               <button className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded">
-                Join Group Study
+              <a href='/channel/focus'>Join Group Study</a>
               </button>
               <button className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded">
-                Create Group Study Room
+              <a href='/channel/focus'> Create Group Study Room</a>
               </button>
               </div>
               

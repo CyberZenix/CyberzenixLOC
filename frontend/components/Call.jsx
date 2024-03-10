@@ -1,5 +1,4 @@
-"use client";
-
+"use client"
 import AgoraRTC, {
   AgoraRTCProvider,
   LocalVideoTrack,
